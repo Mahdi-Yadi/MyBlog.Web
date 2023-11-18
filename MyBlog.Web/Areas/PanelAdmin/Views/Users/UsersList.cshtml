@@ -1,0 +1,104 @@
+﻿@model MyBlog.Web.ViewModels.Users.UsersViewModel
+@{
+    ViewData["AdminTitle"] = "لیست کاربران";
+    int row = 1;
+}
+
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <section class="users-list-wrapper">
+                <div class="users-list-filter px-2">
+                    <form asp-area="PanelAdmin" asp-controller="Users" asp-action="UsersList" method="get" id="filter-form">
+                        <div class="row border rounded py-2 mb-2 mx-n2">
+                            <div class="col-12 col-sm-6 col-lg-3">
+                                <label>نام کاربر</label>
+                                <input class="form-control" placeholder="نام" name="userName">
+                                <input class="form-control" placeholder="ایمیل" name="email">
+                            </div>
+                            <div class="col-12 col-sm-6 col-lg-3 d-flex align-items-center">
+                                <button type="submit" class="btn btn-success btn-block mb-0">جستجو</button>
+                            </div>
+                            <div class="col-12 col-sm-6 col-lg-3 d-flex align-items-center">
+                                <a type="button" class="btn btn-info btn-block users-list-clear glow mb-1" asp-area="PanelAdmin" asp-controller="Users" asp-action="UsersList">پاک کردن</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title" style="color:darkcyan;"> لیست کاربران</h4>
+                                <br />
+                            </div>
+                            <div class="card-content">
+                                <div class="card-body">
+                                    <div class="table-responsive" style="overflow-x:hidden;">
+                                        <div id="DataTables_Table_2_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                                            <table class="table text-center m-0" id="DataTables_Table_2" role="grid">
+                                                <thead>
+                                                    <tr>
+                                                        <th style="color:gold;">#</th>
+                                                        <th style="color:dimgrey;">نام و نام خانوادگی</th>
+                                                        <th style="color:gray;">ایمیل</th>
+                                                        <th style="color:forestgreen;">تاریخ ثبت نام</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach (var user in Model.Users)
+                                                    {
+                                                        <tr>
+                                                            <td>
+                                                                @row
+                                                            </td>
+                                                            <td>
+                                                                @user.UserName
+                                                            </td>
+                                                            <td>
+                                                                @user.Email
+                                                            </td>
+                                                            <td>
+                                                                @user.CreateDate
+                                                            </td>
+                                                        </tr>
+                                                        row += 1;
+                                                    }
+                                                </tbody>
+                                                <tfoot>
+                                                    <tr>
+                                                        <th style="color:gold;">#</th>
+                                                        <th style="color:dimgrey;">نام و نام خانوادگی</th>
+                                                        <th style="color:gray;">ایمیل</th>
+                                                        <th style="color:forestgreen;">تاریخ ثبت نام</th>
+                                                    </tr>
+                                            </table>
+                                            <br />
+                                            <div class="row">
+                                                <div class="col-md-6 col-12">
+                                                    <div class="dataTables_paginate paging_simple_numbers">
+                                                        <ul>
+                                                            @for (int i = 1; i <= Model.PageCount; i++)
+                                                            {
+                                                                <li class="@((i == Model.CurrentPage)?"active":"")">
+                                                                    <a href="/Panel/UsersList?PageId=@i">
+                                                                        @i
+                                                                    </a>
+                                                                </li>
+                                                            }
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="clear"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>

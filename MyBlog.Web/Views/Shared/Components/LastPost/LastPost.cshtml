@@ -1,0 +1,287 @@
+﻿@using MyBlog.Web.Models.Posts;
+@{
+    var posts = ViewBag.post as List<Post>;
+}
+
+<div class="mixed-area-wrapper index-03">
+    <div class="container custom-container-01">
+        <div class="row">
+            <div class="col-lg-12 col-xl-8">
+                <div class="whats-new-area-wrapper index-03" data-padding-top="0" data-padding-bottom="100">
+                    <div class="row">
+                        <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                            <div class="section-title-style-02">
+                                <h3 class="title">چه خبر</h3>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                            <div class="category-btn-wrapper">
+                                <ul class="category-btn-list">
+                                    <li class="category-btn active">
+                                        <a href="blog-standard-right-sidebar.html">فناوری</a>
+                                    </li>
+                                    <li class="category-btn">
+                                        <a href="blog-standard-right-sidebar.html">سیاست</a>
+                                    </li>
+                                    <li class="category-btn">
+                                        <a href="blog-standard-right-sidebar.html">بازی</a>
+                                    </li>
+                                    <li class="category-btn">
+                                        <a href="blog-standard-right-sidebar.html">سرگرمی</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="what-new-index-03-wrap two-column">
+                        <div class="row">
+                            @if(posts != null)
+                            {
+                                @foreach(var post in posts)
+                                {
+                                    <div class="col-sm-6 col-md-6 col-lg-6">
+                                        <div class="blog-grid-style-01 v-02">
+                                            <div class="img-box">
+                                                <img src="/common/images/@post.ImageName" alt="@post.Title">
+                                                <div class="tag-box left">
+                                                    <a href="#" class="category-style-01 v-02 bg-color-a">بازی</a>
+                                                </div>
+                                            </div>
+                                            <div class="content">
+                                                <div class="post-meta color-black">
+                                                    <ul class="post-meta-list">
+                                                        <li class="post-meta-item">
+                                                            <a href="author-profile.html">
+                                                                <img src="/site/img/post-meta/user/user-01.png" alt="image"
+                                                                     class="image">
+                                                                <span class="text"></span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="post-meta-item date">
+                                                            <span class="text">@post.CreateDate</span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <h4 class="title">
+                                                    <a asp-area="" asp-controller="Posts" asp-action="PostDetail" asp-route-id="@post.Id">
+                                                        @post.Title
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            }
+
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="btn-wrapper text-center margin-top-60">
+                                    <a asp-area="" asp-controller="Posts" asp-action="PostList" class="btn-default transparent-btn-dark see-more">بیشتر</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- چه خبر area end -->
+                <!-- ads banner area start -->
+                <div class="ads-banner-area-wrapper leaderboard" data-padding-top="0" data-padding-bottom="85">
+                    <div class="ads-banner-box">
+                        <a href="#">
+                            <img src="/site/img/ads-banner/leaderboard/05.jpg" alt="ads-banner">
+                        </a>
+                    </div>
+                </div>
+                <!-- ads banner area end -->
+            </div>
+            <div class="col-sm-8 col-md-6 col-lg-6 col-xl-4">
+                <div class="widget-area-wrapper" data-padding-top="0" data-padding-bottom="100">
+                    <div class="widget">
+                        <div class="social-link style-02">
+                            <h4 class="widget-title style-04">ارتباط اجتماعی</h4>
+                            <ul class="widget-social-link-list">
+                                <li class="single-item bg-facebook">
+                                    <span class="left-content">
+                                        <a href="#" class="icon facebook">
+                                            <i class="lab la-facebook-f"></i>
+                                        </a>
+                                        <span class="followers-numb">
+                                            <span class="count">0</span>
+                                            <span class="text">دنبال کردن</span>
+                                        </span>
+                                    </span>
+                                    <a href="#" class="link">
+                                        <i class="lar la-thumbs-up like"></i>
+                                    </a>
+                                </li>
+                                <li class="single-item bg-twitter">
+                                    <span class="left-content">
+                                        <a href="#" class="icon twitter">
+                                            <i class="lab la-twitter"></i>
+                                        </a>
+                                        <span class="followers-numb">
+                                            <span class="count">0</span>
+                                            <span class="text">دنبال کردن</span>
+                                        </span>
+                                    </span>
+                                    <a href="#" class="link">
+                                        <i class="lar la-thumbs-up like"></i>
+                                    </a>
+                                </li>
+                                <li class="single-item bg-youtube">
+                                    <span class="left-content">
+                                        <a href="#" class="icon youtube">
+                                            <i class="lab la-youtube"></i>
+                                        </a>
+                                        <span class="followers-numb">
+                                            <span class="count">0</span>
+                                            <span class="text">دنبال کردن</span>
+                                        </span>
+                                    </span>
+                                    <a href="#" class="link">
+                                        <i class="lar la-thumbs-up like"></i>
+                                    </a>
+                                </li>
+                                <li class="single-item bg-instagram">
+                                    <span class="left-content">
+                                        <a href="#" class="icon instagram">
+                                            <i class="lab la-instagram"></i>
+                                        </a>
+                                        <span class="followers-numb">
+                                            <span class="count">0</span>
+                                            <span class="text">دنبال کردن</span>
+                                        </span>
+                                    </span>
+                                    <a href="#" class="link">
+                                        <i class="lar la-thumbs-up like"></i>
+                                    </a>
+                                </li>
+                                <li class="single-item bg-linkedin">
+                                    <span class="left-content">
+                                        <a href="#" class="icon linkedin">
+                                            <i class="lab la-linkedin-in"></i>
+                                        </a>
+                                        <span class="followers-numb">
+                                            <span class="count">0</span>
+                                            <span class="text">دنبال کردن</span>
+                                        </span>
+                                    </span>
+                                    <a href="#" class="link">
+                                        <i class="lar la-thumbs-up like"></i>
+                                    </a>
+                                </li>
+                                <li class="single-item bg-pinterest">
+                                    <span class="left-content">
+                                        <a href="#" class="icon pinterest">
+                                            <i class="lab la-pinterest-p"></i>
+                                        </a>
+                                        <span class="followers-numb">
+                                            <span class="count">0</span>
+                                            <span class="text">دنبال کردن</span>
+                                        </span>
+                                    </span>
+                                    <a href="#" class="link">
+                                        <i class="lar la-thumbs-up like"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="widget">
+                        <div class="adds style-01">
+                            <a href="#">
+                                <img src="/site/img/ads-banner/half-page/06.jpg" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="widget">
+                        <div class="category style-02 v-02">
+                            <h4 class="widget-title style-04">دسته بندی</h4>
+                            <ul class="widget-category-list">
+                                <li class="single-item">
+                                    <a href="blog-grid-full.html" class="wrap">
+                                        <span class="left-content">
+                                            <img src="/site/img/widget/category/style-02/01.jpg" alt="image">
+                                        </span>
+                                        <span class="right-content">
+                                            مد <span class="count">
+                                                (10)
+                                                مقاله
+                                            </span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="single-item">
+                                    <a href="blog-standard-right-sidebar.html" class="wrap">
+                                        <span class="left-content">
+                                            <img src="/site/img/widget/category/style-02/02.jpg" alt="image">
+                                        </span>
+                                        <span class="right-content">
+                                            سیاسی <span class="count">
+                                                (10)
+                                                مقاله
+                                            </span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="single-item">
+                                    <a href="blog-list-right-sidebar.html" class="wrap">
+                                        <span class="left-content">
+                                            <img src="/site/img/widget/category/style-02/03.jpg" alt="image">
+                                        </span>
+                                        <span class="right-content">
+                                            برچسب <span class="count">
+                                                (10)
+                                                مقاله
+                                            </span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="single-item">
+                                    <a href="blog-two-column-right-sidebar.html" class="wrap">
+                                        <span class="left-content">
+                                            <img src="/site/img/widget/category/style-02/04.jpg" alt="image">
+                                        </span>
+                                        <span class="right-content">
+                                            تجارت <span class="count">
+                                                (10)
+                                                مقاله
+                                            </span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="single-item">
+                                    <a href="blog-list-right-sidebar.html" class="wrap">
+                                        <span class="left-content">
+                                            <img src="/site/img/widget/category/style-02/05.jpg" alt="image">
+                                        </span>
+                                        <span class="right-content">
+                                            سفر <span class="count">
+                                                (10)
+                                                مقاله
+                                            </span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="single-item">
+                                    <a href="blog-standard-right-sidebar.html" class="wrap">
+                                        <span class="left-content">
+                                            <img src="/site/img/widget/category/style-02/06.jpg" alt="image">
+                                        </span>
+                                        <span class="right-content">
+                                            تکنولوژِی <span class="count">
+                                                (10)
+                                                مقاله
+                                            </span>
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

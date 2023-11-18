@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>@ViewData["AdminTitle"]</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <partial name="_Styles" />
+    @RenderSection("styles",false)
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+
+    <div class="wrapper">
+
+        <partial name="_Header" />
+
+        <partial name="_Menu" />
+
+
+        <div class="content-wrapper">
+            @RenderBody()
+        </div>
+
+        <footer class="main-footer text-left">
+            <strong>Copyleft &copy; 2023<a href="https://mahdiyadi.ir">مهدی یدی</a></strong>
+        </footer>
+
+        <div class="control-sidebar-bg"></div>
+    </div>
+
+    <partial name="_Scripts" />
+    @RenderSection("scripts",false)
+</body>
+</html>

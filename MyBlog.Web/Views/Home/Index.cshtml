@@ -1,0 +1,546 @@
+﻿@using MyBlog.Web.Models.Posts;
+@{
+    ViewData["Title"] = "صفحه اصلی";
+    var lastPost = ViewBag.lastpost as List<Post>; 
+    var special = ViewBag.specialpost as List<Post>;
+}
+
+<div class="header-area-wrapper" data-padding-top="30" data-padding-bottom="100">
+    <div class="header-area index-03">
+        <div class="container custom-container-01">
+            <div class="row">
+                @if (special.Any())
+            {
+                @foreach (var post in special)
+                {
+                <div class="col-lg-12 col-xl-8">
+                    <div class="image-blog-large three">
+                        <div class="image-blog-style-01 v-02">
+                            <div class="img-box">
+                                <div class="background-img"
+                                             style="background-image: url(/common/images/@post.ImageName);"
+                                     data-height="885"></div>
+                                <span class="overlay"></span>
+                            </div>
+                            <div class="content">
+                                        <a asp-area="" asp-controller="Posts" asp-action="PostDetail" asp-route-id="@post.Id" class="category-style-01 v-02 bg-color-g">فناوری</a>
+                                <h3 class="title">
+                                            <a asp-area="" asp-controller="Posts" asp-action="PostDetail" asp-route-id="@post.Id">
+                                        @post.Title
+                                    </a>
+                                </h3>
+                                <div class="post-meta color-white">
+                                    <ul class="post-meta-list">
+                                        <li class="post-meta-item date">
+                                            <span class="text">@post.CreateDate</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    }
+                }
+                <div class="col-lg-12 col-xl-4">
+                    <div class="image-blog-post-small index-03 one">
+                        @if (lastPost.Any())
+                        {
+                            @foreach (var post in lastPost)
+                            {
+                                <div class="image-blog-style-01 v-02 small">
+                                    <div class="img-box">
+                                        <div class="tag-box left">
+                                            <a href="blog-details-02.html" class="category-style-01 v-02 bg-color-d">فناوری</a>
+                                        </div>
+                                        <img src="/common/images/@post.ImageName" alt="@post.Title">
+                                        <span class="overlay"></span>
+                                    </div>
+                                    <div class="content">
+                                        <div class="post-meta color-white">
+                                            <ul class="post-meta-list">
+                                                <li class="post-meta-item date">
+                                                    <span class="text">@post.CreateDate</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <h3 class="title">
+                                            <a asp-area="" asp-controller="Posts" asp-action="PostDetail" asp-route-id="@post.Id">
+                                                @post.Title
+                                            </a>
+                                        </h3>
+                                    </div>
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@* <div class="ads-banner-area-wrapper leaderboard" data-padding-top="0" data-padding-bottom="84">
+    <div class="container custom-container-01">
+        <div class="row">
+            
+                    <div class="col-lg-12">
+                        <div class="ads-banner-box">
+                            <a asp-area="" asp-controller="Posts" asp-action="PostDetail" asp-route-id="@post.Id">
+                                <img src="/common/images/@post.ImageName" alt="@post.Title">
+                            </a>
+                        </div>
+                    </div>
+
+        </div>
+    </div>
+</div> *@
+
+@await Component.InvokeAsync("LastPost")
+
+<!-- داستان های محبوب area start -->
+<div class="popular-stories-area-wrapper index-03" data-padding-top="0" data-padding-bottom="84">
+    <div class="container custom-container-01">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title-style-02">
+                    <h3 class="title">داستان های محبوب</h3>
+                </div>
+            </div>
+        </div>
+        <div class="row popular-stories-inner popular-stories-index-03-slider-inst">
+            <div class="col-lg-12">
+                <div class="blog-grid-style-01 v-02">
+                    <div class="img-box">
+                        <div class="tag-box left">
+                            <a href="blog-standard-right-sidebar.html" class="category-style-01 v-02 bg-color-d">فناوری</a>
+                        </div>
+                        <img src="/site/img/popular-stories/index-03/01.jpg" alt="image">
+                    </div>
+                    <div class="content">
+                        <div class="post-meta color-black">
+                            <ul class="post-meta-list">
+                                <li class="post-meta-item date">
+                                    <span class="text">25 اسفند 1400</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <h4 class="title v-02">
+                            <a href="blog-details-02.html">اگر نتوانید آماده شوید، ایزی استریت آماده شکست هستید.</a>
+                        </h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="blog-grid-style-01 v-02">
+                    <div class="img-box">
+                        <div class="tag-box left">
+                            <a href="blog-standard-right-sidebar.html" class="category-style-01 v-02 bg-color-c">بازی</a>
+                        </div>
+                        <img src="/site/img/popular-stories/index-03/02.jpg" alt="image">
+                    </div>
+                    <div class="content">
+                        <div class="post-meta color-black">
+                            <ul class="post-meta-list">
+                                <li class="post-meta-item date">
+                                    <span class="text">25 اسفند 1400</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <h4 class="title v-02">
+                            <a href="blog-details-02.html">اگر نتوانید آماده شوید، ایزی استریت آماده شکست هستید.</a>
+                        </h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="blog-grid-style-01 v-02">
+                    <div class="img-box">
+                        <div class="tag-box left">
+                            <a href="blog-standard-right-sidebar.html" class="category-style-01 v-02 bg-color-e">اخبار</a>
+                        </div>
+                        <img src="/site/img/popular-stories/index-03/03.jpg" alt="image">
+                    </div>
+                    <div class="content">
+                        <div class="post-meta color-black">
+                            <ul class="post-meta-list">
+                                <li class="post-meta-item date">
+                                    <span class="text">25 اسفند 1400</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <h4 class="title v-02">
+                            <a href="blog-details-02.html">اگر نتوانید آماده شوید، ایزی استریت آماده شکست هستید.</a>
+                        </h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="blog-grid-style-01 v-02">
+                    <div class="img-box">
+                        <div class="tag-box left">
+                            <a href="blog-standard-right-sidebar.html" class="category-style-01 v-02 bg-color-f">بازی</a>
+                        </div>
+                        <img src="/site/img/popular-stories/index-03/04.jpg" alt="image">
+                    </div>
+                    <div class="content">
+                        <div class="post-meta color-black">
+                            <ul class="post-meta-list">
+                                <li class="post-meta-item date">
+                                    <span class="text">25 اسفند 1400</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <h4 class="title v-02">
+                            <a href="blog-details-02.html">اگر نتوانید آماده شوید، ایزی استریت آماده شکست هستید.</a>
+                        </h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="blog-grid-style-01 v-02">
+                    <div class="img-box">
+                        <div class="tag-box left">
+                            <a href="blog-standard-right-sidebar.html" class="category-style-01 v-02 bg-color-c">بازی</a>
+                        </div>
+                        <img src="/site/img/popular-stories/index-03/03.jpg" alt="image">
+                    </div>
+                    <div class="content">
+                        <div class="post-meta color-black">
+                            <ul class="post-meta-list">
+                                <li class="post-meta-item date">
+                                    <span class="text">25 اسفند 1400</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <h4 class="title v-02">
+                            <a href="blog-details-02.html">اگر نتوانید آماده شوید، ایزی استریت آماده شکست هستید.</a>
+                        </h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- داستان های محبوب area end -->
+<!-- ویدئوها بیشتر area start -->
+<div class="latest-videos-area-wrapper index-03" data-padding-top="0" data-padding-bottom="100">
+    <div class="container custom-container-01">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title-style-02">
+                    <h3 class="title">ویدئوها بیشتر</h3>
+                    <a href="blog-details-02.html" class="view-more">بیشتر ببینید <i class="las la-arrow-right icon"></i></a>
+                </div>
+
+                <div class="row reverse">
+                    <div class="col-sm-9 col-md-8 col-lg-6 col-xl-4">
+                        <div class="videos-blog-list style-01">
+                            <ul class="recent-blog-post-style-01 v-02">
+                                <li class="single-blog-post-item">
+                                    <div class="thumb video-blog">
+                                        <img src="/site/img/videos/index-03/mini/02.jpg" alt="image">
+                                        <a href="https://www.youtube.com/watch?v=ZgNu77oiKo8"
+                                           class="play-icon icon-style-01 magnific-inst mfp-iframe">
+                                            <img src="/site/img/videos/play-icon/04.svg" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="content">
+                                        <a href="blog-standard-right-sidebar.html" class="category-style-01 v-02 -02 bg-color-c">ویدیو</a>
+                                        <h4 class="title">
+                                            <a href="blog-details-02.html">اگر نتوانید آماده شوید، آماده شکست هستید. </a>
+                                        </h4>
+                                    </div>
+                                </li>
+                                <li class="single-blog-post-item">
+                                    <div class="thumb video-blog">
+                                        <img src="/site/img/videos/index-03/mini/03.jpg" alt="image">
+                                        <a href="https://www.youtube.com/watch?v=ZgNu77oiKo8"
+                                           class="play-icon icon-style-01 magnific-inst mfp-iframe">
+                                            <img src="/site/img/videos/play-icon/04.svg" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="content">
+                                        <a href="blog-standard-right-sidebar.html" class="category-style-01 v-02 -02 bg-color-b">بازی</a>
+                                        <h4 class="title">
+                                            <a href="blog-details-02.html">اگر نتوانید آماده شوید، آماده باشید. </a>
+                                        </h4>
+                                    </div>
+                                </li>
+                                <li class="single-blog-post-item">
+                                    <div class="thumb video-blog">
+                                        <img src="/site/img/videos/index-03/mini/01.jpg" alt="image">
+                                        <a href="https://www.youtube.com/watch?v=ZgNu77oiKo8"
+                                           class="play-icon icon-style-01 magnific-inst mfp-iframe">
+                                            <img src="/site/img/videos/play-icon/04.svg" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="content">
+                                        <a href="blog-standard-right-sidebar.html" class="category-style-01 v-02 -02 bg-color-g">فناوری</a>
+                                        <h4 class="title">
+                                            <a href="blog-details-02.html">اگر نتوانید آماده شوید، آماده باشید.</a>
+                                        </h4>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-xl-8">
+                        <div class="image-blog-style-01">
+                            <div class="img-box video-blog">
+                                <div class="background-img"
+                                     style="background-image: url(/site/img/videos/index-03/01.jpg);"
+                                     data-height="656"></div>
+                                <span class="overlay"></span>
+                                <a href="https://www.youtube.com/watch?v=ZgNu77oiKo8"
+                                   class="right-top magnific-inst mfp-iframe">
+                                    <img src="/site/img/videos/play-icon/09.svg" alt="">
+                                </a>
+                            </div>
+                            <div class="content">
+                                <a href="blog-standard-right-sidebar.html" class="category-style-01 v-02 bg-color-g">فناوری</a>
+                                <h3 class="title">
+                                    <a href="blog-details-02.html">اگر نتوانید آماده شوید، ایزی استریت آماده شکست هستید.</a>
+                                </h3>
+                                <div class="post-meta color-white">
+                                    <ul class="post-meta-list">
+                                        <li class="post-meta-item">
+                                            <a href="author-profile.html">
+                                                <img src="/site/img/post-meta/user/user-01.png" alt="image"
+                                                     class="image">
+                                                <span class="text">کاتریو</span>
+                                            </a>
+                                        </li>
+                                        <li class="post-meta-item date">
+                                            <i class="lar la-clock icon"></i>
+                                            <span class="text">25 اسفند 1400</span>
+                                        </li>
+                                        <li class="post-meta-item">
+                                            <a href="#">
+                                                <i class="lar la-comments icon"></i>
+                                                <span class="text">120</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ویدئوها بیشتر area end -->
+<!-- ads banner area start -->
+<div class="ads-banner-area-wrapper leaderboard" data-padding-top="0" data-padding-bottom="100">
+    <div class="container custom-container-01">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ads-banner-box">
+                    <a href="#">
+                        <img src="/site/img/ads-banner/leaderboard/06.jpg" alt="ads-banner">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ads banner area end -->
+
+<div class="container custom-container-01">
+    <div class="row">
+        <div class="col-lg-12 col-xl-8">
+            <!-- داستان های هفته area start -->
+            <div class="stories-of-the-week-area-wrapper index-03" data-padding-top="0" data-padding-bottom="86">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-title-style-02">
+                            <h3 class="title">داستان های هفته</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="stories-of-the-week-inner one-column">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="blog-list-style-01 v-02">
+                                <div class="img-box">
+                                    <div class="tag-box left">
+                                        <a href="blog-details-02.html" class="category-style-01 v-02 bg-color-c">بازی</a>
+                                    </div>
+                                    <img src="/site/img/story-of-the-week/index-03/01.jpg" alt="image">
+                                </div>
+                                <div class="content">
+                                    <div class="content-inner">
+                                        <h4 class="title">
+                                            <a href="blog-standard-right-sidebar.html">
+                                                اگر نتوانید آماده شوید، ایزی استریت آماده شکست هستید.
+                                            </a>
+                                        </h4>
+                                        <p class="info">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</p>
+                                        <div class="post-meta color-black">
+                                            <ul class="post-meta-list">
+                                                <li class="post-meta-item">
+                                                    <a href="author-profile.html">
+                                                        <img src="/site/img/post-meta/user/user-01.png" alt="image"
+                                                             class="image">
+                                                        <span class="text">کاتریو</span>
+                                                    </a>
+                                                </li>
+                                                <li class="post-meta-item date">
+                                                    <span class="text">25 اسفند 1400</span>
+                                                </li>
+                                                <li class="post-meta-item">
+                                                    <a href="#">
+                                                        <span class="text">120 نظر</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="blog-list-style-01 v-02">
+                                <div class="img-box">
+                                    <div class="tag-box left">
+                                        <a href="blog-details-02.html" class="category-style-01 v-02 bg-color-b">بازی</a>
+                                    </div>
+                                    <img src="/site/img/story-of-the-week/index-03/02.jpg" alt="image">
+                                </div>
+                                <div class="content">
+                                    <div class="content-inner">
+                                        <h4 class="title">
+                                            <a href="blog-standard-right-sidebar.html">
+                                                من پولم را همانجا دوست دارم که بتوانم آن را ببینم... در کمد من آویزان است.
+                                            </a>
+                                        </h4>
+                                        <p class="info">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</p>
+                                        <div class="post-meta color-black">
+                                            <ul class="post-meta-list">
+                                                <li class="post-meta-item">
+                                                    <a href="author-profile.html">
+                                                        <img src="/site/img/post-meta/user/user-01.png" alt="image"
+                                                             class="image">
+                                                        <span class="text">کاتریو</span>
+                                                    </a>
+                                                </li>
+                                                <li class="post-meta-item date">
+                                                    <span class="text">25 اسفند 1400</span>
+                                                </li>
+                                                <li class="post-meta-item">
+                                                    <a href="#">
+                                                        <span class="text">120 نظر</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- داستان های هفته area end -->
+            <!-- نکات برجسته ماهانه area start -->
+            <div class="monthly-highlights index-03" data-padding-top="0" data-padding-bottom="100">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-title-style-02">
+                            <h3 class="title">نکات برجسته ماهانه</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="image-blog-large three">
+                            <div class="image-blog-style-01 v-02 small">
+                                <div class="img-box">
+                                    <div class="background-img"
+                                         style="background-image: url(/site/img/monthly-highlights/index-03/01.jpg);"
+                                         data-height="656"></div>
+                                    <span class="overlay"></span>
+                                </div>
+                                <div class="content">
+                                    <h3 class="title v-02">
+                                        <a href="blog-details-02.html">اگر نتوانید آماده شوید، ایزی استریت آماده شکست هستید.</a>
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-9 col-md-8 col-lg-6">
+                        <ul class="recent-blog-post-style-01 v-02">
+                            <li class="single-blog-post-item">
+                                <div class="thumb video-blog">
+                                    <img src="/site/img/videos/index-03/mini/02.jpg" alt="image">
+                                </div>
+                                <div class="content">
+                                    <a href="blog-standard-right-sidebar.html" class="category-style-01 v-02 -02 bg-color-c">ویدیو</a>
+                                    <h4 class="title">
+                                        <a href="blog-details-02.html">اگر نتوانید آماده شوید، آماده شکست هستید. </a>
+                                    </h4>
+                                </div>
+                            </li>
+                            <li class="single-blog-post-item">
+                                <div class="thumb video-blog">
+                                    <img src="/site/img/videos/index-03/mini/03.jpg" alt="image">
+                                </div>
+                                <div class="content">
+                                    <a href="blog-standard-right-sidebar.html" class="category-style-01 v-02 -02 bg-color-b">بازی</a>
+                                    <h4 class="title">
+                                        <a href="blog-details-02.html">اگر نتوانید آماده شوید، آماده باشید. </a>
+                                    </h4>
+                                </div>
+                            </li>
+                            <li class="single-blog-post-item">
+                                <div class="thumb video-blog">
+                                    <img src="/site/img/videos/index-03/mini/01.jpg" alt="image">
+                                </div>
+                                <div class="content">
+                                    <a href="blog-standard-right-sidebar.html" class="category-style-01 v-02 -02 bg-color-g">فناوری</a>
+                                    <h4 class="title">
+                                        <a href="blog-details-02.html">اگر نتوانید آماده شوید، آماده باشید.</a>
+                                    </h4>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- نکات برجسته ماهانه area end -->
+        </div>
+        <div class="col-sm-8 col-md-6 col-lg-6 col-xl-4">
+            <div class="widget-area-wrapper" data-padding-top="0" data-padding-bottom="100">
+                <div class="widget">
+                    <div class="newsletter style-02">
+                        <div class="icon-box">
+                            <img src="/site/img/widget/newsletter/style-02/01.png" alt="">
+                        </div>
+                        <div class="text-box">
+                            <p class="info">برای همه به روز رسانی ها در خبرنامه ما مشترک شوید</p>
+                        </div>
+                        <p class="info">آخرین اخبار خلاقانه را از <br> دریافت کنید</p>
+                        <div class="form-box">
+                            <form>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" placeholder="ادرس پست الکترونیکی را وارد کن">
+                                    <button type="submit" class="news-letter-btn">عضویت</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="widget">
+                    <div class="adds style-01">
+                        <a href="#">
+                            <img src="/site/img/ads-banner/half-page/07.jpg" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

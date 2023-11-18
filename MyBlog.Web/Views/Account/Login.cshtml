@@ -1,0 +1,46 @@
+﻿@model MyBlog.Web.ViewModels.Account.LoginViewModel
+@{
+    ViewData["Title"] = "ورود به حساب کاربری";
+}
+@section scripts
+    {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+<div class="sign-in-area-wrapper" data-padding-top="95" data-padding-bottom="95">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-5">
+                <div class="sign-in register">
+                    <h4 class="title">@ViewData["Title"]</h4>
+                    <div class="form-wrapper">
+                        <form method="post" asp-area="" asp-controller="Account" asp-action="Login">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1"> ایمیل <span class="required">*</span></label>
+                                <input type="email" class="form-control" asp-for="Email" placeholder="ایمیل">
+                                <span asp-validation-for="Email"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">کلمه عبور<span class="required">*</span></label>
+                                <input type="password" class="form-control" asp-for="Password" placeholder="کلمه عبور">
+                                <span asp-validation-for="Password"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">مرا به خاطر بسپار<span class="required">*</span></label>
+                                <input type="checkbox" class="form-control" asp-for="RememberMe">
+                            </div>
+                            <div class="btn-wrapper">
+                                <button type="submit" class="btn-default rounded-btn">ورود</button>
+                            </div>
+                        </form>
+                        <p class="info">
+                            <a class="active" asp-area="" asp-controller="Account" asp-action="Register">
+                                ثبت نام
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

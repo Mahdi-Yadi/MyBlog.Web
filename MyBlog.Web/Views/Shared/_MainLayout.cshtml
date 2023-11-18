@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>@ViewData["Title"]</title>
+    <partial name="_Styles"/> 
+    @RenderSection("styles",false)
+</head>
+<body>
+
+    <!-- preloader start -->
+    <div class="preloader-inner">
+        <div class="preloader-main-gif">
+            <img src="/site/img/preloader/fidget-spinner.gif" alt="">
+        </div>
+    </div>
+    <!-- preloader end -->
+
+    @await Component.InvokeAsync("SiteHeader")
+
+    @RenderBody()
+
+    @await Component.InvokeAsync("SiteFooter")
+
+    <!-- back to top area start -->
+    <div class="scroll-to-top">
+        <i class="las la-chevron-up"></i>
+    </div>
+    <!-- back to top area end -->
+
+    <partial name="_Scripts" />
+    @RenderSection("scripts",false)
+    <partial name="_SiteMessages" />
+</body>
+</html>

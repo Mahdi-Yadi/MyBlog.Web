@@ -1,0 +1,104 @@
+﻿@model MyBlog.Web.Models.Posts.Post
+@using MyBlog.Web.Models.Categories;
+@{
+    ViewData["AdminTitle"] = "افزودن خبر";
+     var cat = ViewBag.cat as List<Category>;
+}
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card card-info card-outline">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="content-header">خبر جدید</div>
+                    </div>
+                </div>
+                <form method="post" asp-area="PanelAdmin" asp-controller="Posts" asp-action="CreatePost" enctype="multipart/form-data">
+                    <section id="simple-validation">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="card">
+                                    <div class="card-content">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <div class="form-group">
+                                                        <div class="controls">
+                                                            <label class="text-success" style="font:bold;">عنوان</label>
+                                                            <input type="text" asp-for="Title" class="form-control" placeholder="" required="" data-validation-required-message="عنوان اجباری است">
+                                                            <div class="help-block"><span asp-validation-for="Title"></span></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="card-title">تصویر محصول</h4>
+                                    </div>
+                                    <div class="card-content">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <div class="form-group">
+                                                        <div class="controls">
+                                                            <label class="card-title">فایل تصویر</label>
+                                                            <input type="file" style="color:darkseagreen;" name="postImage" id="postImage">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <span>ویژه</span>
+                                            <input type="checkbox" asp-for="IsSpecial" />
+                                        </div>
+                                        <hr />
+                                        <div>
+                                            @if (cat.Any())
+                                            {
+                                                @foreach(var item in cat)
+                                                {
+                                                    <span>
+                                                        @item.Name
+                                                        <input type="checkbox" value="@item.Id"/>
+                                                    </span>
+                                                }
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-content">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <div class="form-group">
+                                                        <div class="controls">
+                                                            <label class="text-info" style="font:bolder;">توضیح اصلی خبر</label>
+                                                            <textarea asp-for="Description" style="width: 100%" rows="10"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <button type="submit" class="btn btn-success">ثبت</button>
+                            </div>
+                        </div>
+                    </section>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

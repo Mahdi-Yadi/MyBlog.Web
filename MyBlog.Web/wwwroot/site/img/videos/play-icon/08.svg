@@ -1,0 +1,4 @@
+<svg id="Play_Button" data-name="Play Button" xmlns="http://www.w3.org/2000/svg" width="132" height="132" viewBox="0 0 132 132">
+  <circle id="Circle" cx="66" cy="66" r="66" fill="#fff"/>
+  <path id="Play_Icon" data-name="Play Icon" d="M25,0,50,34H0Z" transform="translate(86 41) rotate(90)" fill="#fc3c68"/>
+</svg>

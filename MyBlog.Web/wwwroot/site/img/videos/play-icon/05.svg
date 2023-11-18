@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">
+  <g id="Play_Button" data-name="Play Button" transform="translate(-1105 -3952)">
+    <rect id="Box" width="120" height="120" transform="translate(1105 3952)" fill="#1a1a27"/>
+    <path id="Play_Icon" data-name="Play Icon" d="M28.293,0,56.585,40H0Z" transform="translate(1185 3984) rotate(90)" fill="#ffc12d"/>
+  </g>
+</svg>

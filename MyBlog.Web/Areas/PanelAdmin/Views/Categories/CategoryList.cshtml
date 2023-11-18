@@ -1,0 +1,78 @@
+﻿@model IEnumerable<MyBlog.Web.ViewModels.Category.CategoryForAdminViewModel>
+@{
+    ViewData["AdminTitle"] = "لیست دسته بندی های سایت";
+    int row = 1;
+}
+@section scripts
+    {
+    <partial name="_ValidationScriptsPartial" />
+}
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <section class="users-list-wrapper">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title" style="color:darkcyan;"> لیست دسته بندی</h4>
+                                <br />
+                                <a class="btn btn-success" asp-area="PanelAdmin" asp-controller="Categories" asp-action="CreateCategory">
+                                    افزودن دسته بندی
+                                </a>
+                            </div>
+                            <div class="card-content">
+                                <div class="card-body">
+                                    <div class="table-responsive" style="overflow-x:hidden;">
+                                        <div id="DataTables_Table_2_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                                            <table class="table text-center m-0" id="DataTables_Table_2" role="grid">
+                                                <thead>
+                                                    <tr>
+                                                        <th style="color:gold;">#</th>
+                                                        <th style="color:gray;">عنوان</th>
+                                                        <th style="color:forestgreen;">دستورات</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach (var cat in Model)
+                                                    {
+                                                        <tr id="ajax-url-item-@cat.CatId">
+                                                            <td>
+                                                                @row
+                                                            </td>
+                                                            <td>
+                                                                @cat.Title
+                                                            </td>
+                                                            <td>
+                                                                <a ajax-url-button="@cat.CatId" class="text-danger" asp-area="PanelAdmin" asp-controller="Categories" asp-action="DeleteCategory" asp-route-categoryId="@cat.CatId">
+                                                                    حذف
+                                                                </a>
+                                                                |
+                                                                <a class="text-info" asp-area="PanelAdmin" asp-controller="Categories" asp-action="EditCategory" asp-route-categoryId="@cat.CatId">
+                                                                    ویرایش
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                        row += 1;
+                                                    }
+                                                </tbody>
+                                                <tfoot>
+                                                    <tr>
+                                                        <th style="color:gold;">#</th>
+                                                        <th style="color:gray;">عنوان</th>
+                                                        <th style="color:forestgreen;">دستورات</th>
+                                                    </tr>
+                                            </table>
+                                            <br />
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</section>

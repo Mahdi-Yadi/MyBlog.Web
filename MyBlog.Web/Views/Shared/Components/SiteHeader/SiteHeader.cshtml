@@ -1,0 +1,205 @@
+﻿ <!-- top bar area start -->
+<div class="topbar-area">
+    <div class="container custom-container-01">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="topbar-inner">
+                    <div class="left-content">
+                        <div class="topbar-item">
+                            <div class="extra-menu">
+                                <ul class="extra-menu-list">
+                                    <li class="link-item">
+                                        <a href="#">
+                                            تبلیغات
+                                        </a>
+                                    </li>
+                                    <li class="link-item">
+                                        <a href="contact-us.html">
+                                            تماس با ما
+                                        </a>
+                                    </li>
+                                    <li class="link-item">
+                                        <a href="author.html">
+                                            نویسنده
+                                        </a>
+                                    </li>
+                                    <li class="link-item">
+                                        <a href="contact-us.html">
+                                            انجمن
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="topbar-item d-none">
+                            <div class="social-icon">
+                                <ul class="social-link-list">
+                                    <li class="link-item">
+                                        <a href="#" class="facebook">
+                                            <i class="lab la-facebook-f icon"></i>
+                                        </a>
+                                    </li>
+                                    <li class="link-item">
+                                        <a href="#" class="twitter">
+                                            <i class="lab la-twitter icon"></i>
+                                        </a>
+                                    </li>
+                                    <li class="link-item">
+                                        <a href="#" class="linkedin">
+                                            <i class="lab la-linkedin-in icon"></i>
+                                        </a>
+                                    </li>
+                                    <li class="link-item">
+                                        <a href="#" class="rss">
+                                            <i class="las la-rss icon icon"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right-content">
+                        <div class="topbar-item">
+                            <div class="social-icon">
+                                <ul class="social-link-list">
+                                    <li class="link-item">
+                                        <a href="#" class="facebook">
+                                            <i class="lab la-facebook-f icon"></i>
+                                        </a>
+                                    </li>
+                                    <li class="link-item">
+                                        <a href="#" class="twitter">
+                                            <i class="lab la-twitter icon"></i>
+                                        </a>
+                                    </li>
+                                    <li class="link-item">
+                                        <a href="#" class="linkedin">
+                                            <i class="lab la-linkedin-in icon"></i>
+                                        </a>
+                                    </li>
+                                    <li class="link-item">
+                                        <a href="#" class="rss">
+                                            <i class="las la-rss icon icon"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="topbar-item">
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <a>@User.Identity.Name /</a>
+                                <a asp-area="" asp-controller="Account" asp-action="Logout">خروج</a>
+                            }
+                            else
+                            {
+                                <a asp-area="" asp-controller="Account" asp-action="Register" class="topbar-login-btn">ثبت نام / </a>
+                                <a asp-area="" asp-controller="Account" asp-action="Login" class="topbar-login-btn"> ورود </a>
+                            }
+                        </div>
+                        <div class="topbar-item">
+                            <div class="select-option">
+                                <div class="single-select">
+                                    <select class="lang">
+                                        <option value="volvo">انگلیسی</option>
+                                        <option value="saab">عربی</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- top bar area end -->
+<!-- nav area start -->
+<div class="nav-main-wrap-for-custom-style-02-v-02">
+    <nav class="navbar navbar-area navbar-expand-lg has-topbar nav-style-01 custom-style-02 v-02 dark-bg-01">
+        <div class="container nav-container custom-container-01">
+            <div class="responsive-mobile-menu">
+                <div class="logo-wrapper">
+                    <a href="index.html" class="logo">
+                        <img src="/site/img/logo/01.png" alt="logo">
+                    </a>
+                </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bizcoxx_main_menu"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="bizcoxx_main_menu">
+                <ul class="navbar-nav">
+                    <li class="menu-item-has-children current-menu-item">
+                        <a href="#">صفحه اصلی</a>
+                        <ul class="sub-menu">
+                            <li><a href="index.html">صفحه اصلی  1 </a></li>
+                            <li><a href="index-02.html">صفحه اصلی  2 </a></li>
+                            <li><a href="index-03.html">صفحه اصلی  3 </a></li>
+                            <li><a href="index-04.html">صفحه اصلی  4 </a></li>
+                            <li><a href="index-05.html">صفحه اصلی  5 </a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="author.html">نویسنده</a>
+                    </li>
+                    <li>
+                        <a href="author-profile.html">پروفایل نویسنده</a>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="#">وبلاگ</a>
+                        <ul class="sub-menu">
+                            <li><a href="blog-three-column.html">وبلاگ سه ستونی</a></li>
+                            <li>
+                                <a href="blog-two-column-right-sidebar.html">وبلاگ دو ستونی با نوار کناری سمت راست</a>
+                            </li>
+                            <li><a href="blog-list-right-sidebar.html">لیست وبلاگ با نوار کناری سمت راست</a></li>
+                            <li><a href="blog-standard-right-sidebar.html">نوار کناری استاندارد وبلاگ</a></li>
+                            <li><a href="blog-grid-full.html">شبکه وبلاگ </a></li>
+                            <li><a href="blog-details-left-sidebar.html">جزئیات وبلاگ با نوار کناری سمت چپ</a></li>
+                            <li><a href="blog-details-right-sidebar.html">جزئیات وبلاگ با نوار کناری سمت راست</a></li>
+                            <li><a href="blog-details-02.html">جزئیات وبلاگ دو</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="#">صفحات</a>
+                        <ul class="sub-menu">
+                            <li><a href="about-us.html">درباره ما</a></li>
+                            <li><a href="faq.html">سوالات متداول</a></li>
+                            <li><a href="search.html">جستجو</a></li>
+                            <li><a href="sign-in.html">ورود</a></li>
+                            <li><a href="sign-up.html">ثبت نام</a></li>
+                            <li><a href="404.html">صفحه 404</a></li>
+                        </ul>
+                    </li>
+                    <li class="">
+                        <a href="video.html">ویدیو</a>
+                    </li>
+                    <li><a href="contact-us.html">تماس با ما</a></li>
+                </ul>
+            </div>
+            <div class="nav-right-content v-02">
+                <div class="search position-relative">
+                    <div class="search-open">
+                        <i class="las la-search icon"></i>
+                    </div>
+
+                    <div class="search-bar">
+                        <form class="menu-search-form" action="#">
+                            <div class="search-close"> <i class="las la-times"></i> </div>
+                            <input class="item-search" type="text" placeholder="اینجا سرچ کن.....">
+                            <button type="submit"> جستجو کردن</button>
+                        </form>
+                    </div>
+                </div>
+                <!-- hamburger area start -->
+                <div class="hamburger-menu-wrapper right-side">
+                    <button class="w3-button w3-teal w3-xlarge" onclick="w3_open()">☰</button>
+                </div>
+                <!-- hamburger area end -->
+            </div>
+        </div>
+    </nav>
+</div>
+<!-- navbar area end -->

@@ -1,0 +1,109 @@
+﻿@model IEnumerable<MyBlog.Web.ViewModels.Posts.PostForAdminViewModel>
+@{
+    ViewData["AdminTitle"] = "لیست خبر های سایت";
+    int row = 1;
+}
+@section scripts
+{
+    <partial name="_ValidationScriptsPartial"/>
+}
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <section class="users-list-wrapper">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title" style="color:darkcyan;"> لیست خبرها</h4>
+                                <br />
+                                <a class="btn btn-success" asp-area="PanelAdmin" asp-controller="Posts" asp-action="CreatePost">
+                                    افزودن خبر
+                                </a>
+                            </div>
+                            <div class="card-content">
+                                <div class="card-body">
+                                    <div class="table-responsive" style="overflow-x:hidden;">
+                                        <div id="DataTables_Table_2_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                                            <table class="table text-center m-0" id="DataTables_Table_2" role="grid">
+                                                <thead>
+                                                    <tr>
+                                                        <th style="color:gold;">#</th>
+                                                        <th style="color:dimgrey;">تصویر</th>
+                                                        <th style="color:ghostwhite;">نوع پست</th>
+                                                        <th style="color:gray;">عنوان خبر</th>
+                                                        <th style="color:forestgreen;">تاریخ ایجاد</th>
+                                                        <th style="color:forestgreen;">دستورات</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach (var post in Model)
+                                                    {
+                                                        <tr id="ajax-url-item-@post.PostId">
+                                                            <td>
+                                                                @row
+                                                            </td>
+                                                            <td>
+                                                                <img src="/common/images/@post.ImageName" style="width:50px; height:50px;" />
+                                                            </td>
+                                                            <td>
+                                                                @(post.IsSpecial ? "ویژه" : "معمولی")
+                                                            </td>
+                                                            <td>
+                                                                @post.PostTitle
+                                                            </td>
+                                                            <td>
+                                                                @post.CreateDate
+                                                            </td>
+                                                            <td>
+                                                                <a ajax-url-button="@post.PostId" class="text-danger" asp-area="PanelAdmin" asp-controller="Posts" asp-action="DeletePost" asp-route-postId="@post.PostId">
+                                                                    حذف
+                                                                </a> 
+                                                                |
+                                                                <a class="text-info" asp-area="PanelAdmin" asp-controller="Posts" asp-action="EditPost" asp-route-postId="@post.PostId">
+                                                                    ویرایش
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                        row += 1;
+                                                    }
+                                                </tbody>
+                                                <tfoot>
+                                                    <tr>
+                                                        <th style="color:gold;">#</th>
+                                                        <th style="color:dimgrey;">تصویر</th>
+                                                        <th style="color:ghostwhite;">نوع پست</th>
+                                                        <th style="color:gray;">عنوان خبر</th>
+                                                        <th style="color:forestgreen;">تاریخ ایجاد</th>
+                                                        <th style="color:forestgreen;">دستورات</th>
+                                                    </tr>
+                                            </table>
+                                            <br />
+                                            @* <div class="row">
+                                                <div class="col-md-6 col-12">
+                                                    <div class="dataTables_paginate paging_simple_numbers">
+                                                        <ul>
+                                                            @for (int i = 1; i <= Model.PageCount; i++)
+                                                            {
+                                                                <li class="@((i == Model.CurrentPage)?"active":"")">
+                                                                    <a href="/Panel/UsersList?PageId=@i">
+                                                                        @i
+                                                                    </a>
+                                                                </li>
+                                                            }
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div> *@
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</section>

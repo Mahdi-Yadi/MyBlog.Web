@@ -1,0 +1,46 @@
+﻿@model MyBlog.Web.Models.Categories.Category
+@{
+    ViewData["AdminTitle"] = "ویرایش دسته بندی";
+}
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card card-info card-outline">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="content-header">خبر ویرایش </div>
+                    </div>
+                </div>
+                <form method="post" asp-area="PanelAdmin" asp-controller="Categories" asp-action="EditCategory">
+                    <input type="hidden" asp-for="Id" />
+                    <section id="simple-validation">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="card">
+                                    <div class="card-content">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <div class="form-group">
+                                                        <div class="controls">
+                                                            <label class="text-success" style="font:bold;">عنوان</label>
+                                                            <input type="text" asp-for="Name" class="form-control" placeholder="" required="" data-validation-required-message="عنوان اجباری است">
+                                                            <div class="help-block"><span asp-validation-for="Name"></span></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <button type="submit" class="btn btn-success">ثبت</button>
+                            </div>
+                        </div>
+                    </section>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
