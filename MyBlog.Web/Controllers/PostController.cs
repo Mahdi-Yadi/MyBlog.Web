@@ -18,8 +18,8 @@ public class PostController : NotificationController
     #endregion
 
     #region Post Detail
-    [HttpGet("PostDetail")]
-    public IActionResult PostDetail()
+    [HttpGet("PostDetail/{id}")]
+    public IActionResult PostDetail(long id)
     {
         return View();
     }
